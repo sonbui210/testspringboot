@@ -1,7 +1,9 @@
 package com.example.demoshop.controller.admin;
 
 
+import com.example.demoshop.model.CategoryDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CategoryController {
 
     @GetMapping("add")
-    public String add() {
+    public String add(Model model) {
+        model.addAttribute("category", new CategoryDto());
+        System.out.println("Add test");
         return "admin/categories/addOrEdit";
     }
 

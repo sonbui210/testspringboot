@@ -21,11 +21,16 @@ public class OrderDetail implements Serializable {
     private int orderId;
 
     @Column(nullable = false)
-    private int productId;
-
-    @Column(nullable = false)
     private int quantity;
 
     @Column(nullable = false)
     private double unitPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    private Order order;
 }
